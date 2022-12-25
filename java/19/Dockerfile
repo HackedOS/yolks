@@ -1,13 +1,18 @@
-FROM eclipse-temurin:19-alpine
 
-RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
-    && adduser --disabled-password --home /home/container container
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:19-alpine
 
-USER container
-ENV  USER=container HOME=/home/container
+LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
-WORKDIR /home/container
+LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
+LABEL       org.opencontainers.image.licenses=MIT
 
-COPY ./entrypoint.sh /entrypoint.sh
+RUN         apt update -y \
+    && apt install -y curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 libfreetype6 \
+    && useradd -d /home/container -m container
 
-CMD ["/bin/bash", "/entrypoint.sh"]
+USER        container
+ENV         USER=container HOME=/home/container
+WORKDIR     /home/container
+
+COPY        ./../entrypoint.sh /entrypoint.sh
+CMD         [ "/bin/bash", "/entrypoint.sh" ]
