@@ -1,5 +1,5 @@
 
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:19-alpine
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:19
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
