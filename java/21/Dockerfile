@@ -1,5 +1,5 @@
 
-FROM        --platform=$TARGETOS/$TARGETARCH openjdk:21-bullseye
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:21
 
 RUN         apt update -y \
     && apt install -y curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 libfreetype6 \
