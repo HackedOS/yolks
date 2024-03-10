@@ -1,5 +1,5 @@
 
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:21
+FROM        --platform=$TARGETOS/$TARGETARCH container-registry.oracle.com/graalvm/jdk:21
 
 RUN         apt update -y \
     && apt install -y curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 libfreetype6 \
