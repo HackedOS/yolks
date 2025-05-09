@@ -7,7 +7,7 @@ RUN         apt update -y \
     && useradd -d /home/container -m container
 
 # Download GraalVM
-RUN wget https://download.oracle.com/graalvm/24/latest/graalvm-jdk-24.0.1_linux-x64_bin.tar.gz
+RUN wget https://download.oracle.com/graalvm/24/graalvm-jdk-24.0.1_linux-x64_bin.tar.gz
 
 # Extract GraalVM
 RUN tar -xzf graalvm-jdk-24.0.1_linux-x64_bin.tar.gz -C /opt
