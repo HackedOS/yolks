@@ -7,17 +7,17 @@ RUN         apt update -y \
     && useradd -d /home/container -m container
 
 # Download GraalVM
-RUN wget https://github.com/graalvm/oracle-graalvm-ea-builds/releases/download/jdk-24.0.0-ea.20/graalvm-jdk-24.0.0-ea.20_linux-x64_bin.tar.gz
+RUN wget https://download.oracle.com/graalvm/24/graalvm-jdk-24.0.1_linux-x64_bin.tar.gz
 
 # Extract GraalVM
-RUN tar -xzf graalvm-jdk-24.0.0-ea.20_linux-x64_bin.tar.gz -C /opt
+RUN tar -xzf graalvm-jdk-24.0.1_linux-x64_bin.tar.gz -C /opt
 
 # Set environment variables
-ENV JAVA_HOME=/opt/graalvm-jdk-24+21.1
+ENV JAVA_HOME=/opt/graalvm-jdk-24.0.1+9.1
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Clean up
-RUN rm graalvm-jdk-24.0.0-ea.20_linux-x64_bin.tar.gz
+RUN rm graalvm-jdk-24.0.1_linux-x64_bin.tar.gz
 
 # Verify installation
 RUN java -version
