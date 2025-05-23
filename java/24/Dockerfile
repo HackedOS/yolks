@@ -10,7 +10,7 @@ RUN         apt update -y \
 RUN wget https://download.oracle.com/graalvm/24/latest/graalvm-jdk-24_linux-x64_bin.tar.gz
 
 # Extract GraalVM
-RUN tar -xzf graalvm-jdk-24_linux-x64_bin.tar.gz -C /opt/graalvm --strip-components=1
+RUN mkdir /opt/graalvm && tar -xzf graalvm-jdk-24_linux-x64_bin.tar.gz -C /opt/graalvm --strip-components=1
 
 # Set environment variables
 ENV JAVA_HOME=/opt/graalvm
