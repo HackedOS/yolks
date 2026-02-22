@@ -17,6 +17,8 @@ jobs:
       matrix:
         tag:
           - java_24
+          - java_21
+          - java_25
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-qemu-action@v2
